@@ -5,7 +5,6 @@ const helmet  = require('helmet')
 const hpp = require('hpp')
 const rateLimiter = require('express-rate-limit')
 const  router  = require('./src/routes/api')
-
 require('dotenv').config()
 const app = new express()
 
@@ -13,7 +12,6 @@ const app = new express()
 app.use(cors())
 
 //security implement
-
 app.use(helmet())
 app.use(hpp())
 app.use(express.json({limit:'20MB'}))
@@ -29,7 +27,6 @@ mongoose.connect(URL,OPTION).then((res)=>{
 }).catch((err)=>{
     console.log(err)
 })
-
 
 //api route implement
 app.use('/api', router)
